@@ -1,0 +1,24 @@
+// @use  'vendor/reset';
+@use 'blocks/vars'as *;
+// @use  "./vendor/animate";
+@use 'fonts'as *;
+@use 'settings'as *;
+@use 'blocks/container'as *;
+@use 'blocks/page'as *;
+@use 'blocks/header'as *;
+@use 'blocks/review/review'as *;
+@use 'blocks/footer'as *;
+@use 'blocks/modal'as *;
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  background: #f5f6fa;
+}
+.main {
+  height: 100%;
+  flex: 1 0 auto;
+}

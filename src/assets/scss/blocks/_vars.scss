@@ -1,0 +1,35 @@
+@use '../mixins/breakpoint' as *;
+
+ :root {
+    // base
+    --font-family: "SF Pro Display", sans-serif;
+    --second-family: "Inter", sans-serif;
+    --third-family: "Poppins", sans-serif;
+    --font3: "Roboto", sans-serif;
+    --font4: "Montserrat", sans-serif;
+    --font5: "Microsoft Sans Serif", sans-serif;
+    --font6: "Helvetica", sans-serif;
+    --font7: "Bricolage Grotesque", sans-serif;
+    --content-width: 1032px;
+    --content-fluid-width: 1360px;
+    --container-offset: 40px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+    --container-fluid-width: calc(var(--content-fluid-width) + (var(--container-offset) * 2));
+    --mt100: 100px;
+    // colors
+    --light-color: #fff;
+    --accent-color: #D52027;
+    --dark-color:#141024;
+    --text-colot: rgba(#141024, 0.7);
+    --text-color: #191c1f;
+  }
+
+  @include tablet{
+    :root{
+      --mt100: 72px;
+    }
+  }  @include mobile{
+    :root{
+      --mt100: 64px;
+    }
+  }

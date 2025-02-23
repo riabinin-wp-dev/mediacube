@@ -1,0 +1,20 @@
+@use '../mixins/breakpoint' as *;
+
+.container, .container_fluid{
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include big-desktop{
+        padding: 0 24px;
+    }
+
+    @include small-tablet{
+        padding: 0 16px;
+    }
+}
+.container_fluid{
+    max-width: var(--container-fluid-width);
+}
+

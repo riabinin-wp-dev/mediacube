@@ -1,0 +1,244 @@
+@use '../mixins/breakpoint' as *;
+
+body:has(.overlay-modal.active){
+    overflow: hidden;
+    padding-right: var(--scrollbar-width);
+}
+.overlay-modal {
+    display: none;
+    background: rgba(99, 104, 132, 0.24);
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    transition: all 0.3s linear;
+    opacity: 0;
+
+    @include micro-mobile{
+        top: 52px;
+    }
+}
+
+.overlay-modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include micro-mobile{
+        // align-items: unset;
+        align-items: flex-start;
+    }
+
+    &.animation {
+        opacity: 1;
+
+        & .modal {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+.modal {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 680px;
+    min-height: 560px;
+    box-shadow: 0 32px 60px -20px rgba(99, 104, 132, 0.16);
+    background: #fff;
+    opacity: 0;
+    transform: translate3d(0, 5%, 0);
+    transition: all 0.3s linear;
+    background-color: #fff;
+    padding: 36px;
+    position: relative;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    @include micro-mobile{
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        background: #f5f6fa;
+        padding: 16px;
+    }
+
+    & .flex-row{
+        @include micro-mobile{
+            flex-direction: column;
+        }
+    }
+}
+
+.modal_close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.modal_title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--text-color);
+    margin: 0 0 24px 0;
+
+    @include mobile{
+        font-size: 20px;
+    }
+}
+
+.modal_form {
+    & .flex-row {
+        gap: 8px;
+        align-items: stretch;
+
+        & span,
+        & input[type="text"],
+        & input[type="mail"] {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    & .project_textarea,
+    & .label_textarea {
+        width: 100%;
+        display: block;
+    }
+
+    & .flex-row+.flex-row,
+    & .flex-row+.form_bottom {
+        margin-top: 8px;
+    }
+
+    & .form_bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.project_input {
+    border-radius: 8px;
+    padding: 12px;
+    background: #f5f6fa;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: #636884;
+    border: none;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    @include mobile{
+        font-size: 14px;
+    }
+
+    @include micro-mobile{
+        background: #fff;
+    }
+}
+
+.form_bottom {
+    background: #f5f6fa;
+    border-radius: 8px;
+
+    @include micro-mobile{
+        background: #fff;
+    }
+}
+
+.project_textarea {
+    background-color: transparent;
+    min-height: 120px;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    resize: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: #636884;
+    border: none;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    @include mobile{
+        font-size: 14px;
+    }
+}
+
+.review_form_rating {
+    padding: 12px;
+}
+
+.review_form_rating input[type="radio"] {
+    display: none;
+}
+
+.review_form_rating label {
+    cursor: pointer;
+}
+
+.review_form_rating label:has(input[type="radio"]:checked) svg,
+.review_form_rating label.active svg {
+    fill: #FFCA43;
+    stroke: #FFCA43;
+}
+
+.review_form_rating {
+    & svg {
+        stroke: #636884;
+        transition: all 0.3s linear;
+        width: 13px;
+        height: 13px;
+    }
+}
+
+.review_attachment {
+    display: none;
+}
+
+.review_file_image {
+    border: 1px dashed rgba(99, 104, 132, 0.6);
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.review_placeholder {
+    background: #f5f6fa;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: #636884;
+
+    @include micro-mobile{
+        background: #fff;
+    }
+}
+.review_submit{
+    margin-top: 24px;
+
+    & input{
+        border: none;
+        cursor: pointer;
+    }
+}

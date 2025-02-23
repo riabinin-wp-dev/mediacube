@@ -1,0 +1,92 @@
+@use './mixins/breakpoint' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-reset {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.h-reset {
+  margin: 0;
+  font-size: inherit;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.mt100 {
+  margin-top: var(--mt100);
+}
+.mb80{
+  margin-bottom: 80px;
+
+  @include tablet{
+    margin-bottom: 48px;
+  }
+
+  @include mobile{
+    margin-bottom: 16px;
+  }
+}
+.mt120{
+  margin-top: 120px;
+}
+
+.project_title {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  color: var(--text-color);
+
+  @include mobile{
+    font-size: 24px;
+  }
+}
+
+.project_link {
+  background: rgba(64, 57, 255, 0.08);
+  border-radius: 12px;
+  padding: 14.5px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: #4039ff;
+
+  @include tablet{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @include mobile{
+    font-size: 14px;
+  }
+}
