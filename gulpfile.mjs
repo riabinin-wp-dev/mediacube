@@ -138,8 +138,7 @@ function processCss(srcPath, destPath, reload = false) {
 }
 
 gulp.task('css', (cb) => {
-    // Убедитесь, что путь к директории css указан правильно
-    processCss(path.src.css, path.build.css + '/css', true); // Указываем, чтобы файлы попадали в assets/css
+    processCss(path.src.css, path.build.css + '/css', true);
     cb();
 });
 
@@ -205,11 +204,10 @@ gulp.task('js', (cb) => {
     cb();
 });
 
-// Задача для наблюдения за изменениями JavaScript файлов
-gulp.task('jsWatch', gulp.series('js', (cb) => {
+gulp.task('jsWatch', (cb) => {
     gulp.watch(path.watch.js, gulp.series('js'));
     cb();
-}));
+});
 
 
 // Задача для оптимизации изображений
