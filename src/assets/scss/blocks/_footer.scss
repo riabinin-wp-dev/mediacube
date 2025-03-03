@@ -198,23 +198,9 @@
 }
 
 .footer_top_register {
-    box-shadow: 0 6px 40px 0 rgba(78, 117, 255, 0.4);
-    background: #4039ff;
-    border-radius: 12px;
-    padding: 12px 32px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 120%;
-    text-align: center;
-    color: #fff;
     display: flex;
     gap: 4px;
     align-items: center;
-
-    @include for-desktop {
-        font-size: 14px;
-        padding: 10px 16px;
-    }
 
     @include micro-tablet {
         max-width: none;
@@ -262,22 +248,10 @@
 }
 
 .footer_top_write {
-    background: #636884;
-    border-radius: 12px;
-    padding: 12px 32px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 120%;
-    text-align: center;
-    color: #fff;
     display: block;
     max-width: max-content;
     margin-top: auto;
 
-    @include for-desktop {
-        padding: 10px 16px;
-        font-size: 14px;
-    }
     @media  (max-width: 680px) {
         margin-top: 20px;
 }

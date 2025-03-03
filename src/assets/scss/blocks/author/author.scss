@@ -15,7 +15,7 @@
             align-items: center;
         }
 
-        @include mobile{
+        @include mobile {
             grid-template-columns: 1fr;
         }
     }
@@ -27,14 +27,14 @@
         line-height: 120%;
         color: #191c1f;
 
-        @include mobile{
+        @include mobile {
             font-size: 16px;
         }
 
         &+p {
             margin-top: 24px;
 
-            @include tablet{
+            @include tablet {
                 margin-top: 16px;
             }
         }
@@ -52,7 +52,7 @@
         height: 370px;
     }
 
-    @include mobile{
+    @include mobile {
         width: 100%;
         height: auto;
         min-height: 346px;
@@ -66,10 +66,11 @@
     line-height: 120%;
     color: #191c1f;
 
-    @include tablet{
+    @include tablet {
         font-size: 28px;
     }
-    @include mobile{
+
+    @include mobile {
         font-size: 24px;
     }
 }
@@ -82,11 +83,11 @@
     color: #191c1f;
     margin-bottom: 36px;
 
-    @include tablet{
+    @include tablet {
         margin-bottom: 24px;
     }
 
-    @include mobile{
+    @include mobile {
         font-size: 16px;
     }
 }
@@ -96,7 +97,7 @@
     display: flex;
     gap: 24px;
 
-    @include tablet{
+    @include tablet {
         margin-top: 24px;
         gap: 16px;
     }
@@ -126,8 +127,8 @@
 
 .author_social_linkedin,
 .author_social_facebook {
-    @include tablet{
-        & span{
+    @include tablet {
+        & span {
             display: none;
         }
     }

@@ -204,11 +204,119 @@ class FooterMenu{
     }
 }
 
+/**
+ * фильтр категорий
+ */
+class Filter{
+        static flag = false;
+
+        /**
+         * 
+         * @param {*} show - элемент показа и скрытия фильтров
+         * @param {*} height - высота - считается из css
+         * @returns 
+         */
+        constructor(show, height){
+            this.show = document.querySelector(`[${show}]`);
+            this.height = height;
+            if(!this.show){
+                console.log('кнопка показа не найдена');
+                return;
+            } 
+            this.parent = this.show.closest('ul');
+            if(!this.parent){
+                console.log('родитель не найден')
+                return;
+            }
+        
+            this.#init();  
+        }
+
+        /**
+         * инициализация клика
+         */
+        #init(){
+            this.#clickOnShow();
+        }
+
+        /**
+         * обработчик клика
+         */
+        #clickOnShow(){
+            this.show.addEventListener('click',(event)=>{
+                event.preventDefault();
+                this.parent.classList.toggle('active');
+                this.#filterAnimation(this.parent);
+            })
+        }
+
+        /**
+         * Анимация раскрытия и открытия
+         * @param {*} parent родительская директория
+         */
+        #filterAnimation(parent){
+            if(!Filter.flag){
+                Filter.flag = true;
+                this.height = window.getComputedStyle(parent).maxHeight;
+            }
+            if(parent.classList.contains('active')){
+                parent.style.maxHeight = `${parent.scrollHeight}px`;
+                this.#changeLabel('Hide all');
+            }else{
+                parent.style.maxHeight = this.height;
+                this.#changeLabel('Show all');
+            }
+        }
+
+        /**
+         * изменение текста кнопки
+         * @param {*} text 
+         */
+        #changeLabel(text){
+            this.show.querySelector('[data-text]').innerText = text;
+        }  
+}
+/**
+ * сласс для работы мобильного фильтра
+ */
+class MobileFilter{
+
+    constructor(classOpen, classList,classClose){
+        this.buttonOpen = document.querySelector(`.${classOpen}`);
+        this.categoryList = document.querySelector(`.${classList}`);
+        this.buttonClose = document.querySelector(`.${classClose}`);
+
+        if (!this.buttonOpen && !this.categoryList && !this.buttonClose){
+            console.log('аргументы не верны');
+            return;
+        }
+        this.#init();
+    }
+
+    #init(){
+        this.#listOpen();
+        this.#listClose();
+    }
+
+    #listOpen(){
+        this.buttonOpen.addEventListener('click',(event)=>{
+            event.preventDefault();
+            this.categoryList.classList.add('active');
+        })
+    }
+    #listClose(){
+        this.buttonClose.addEventListener('click',()=>{
+            this.categoryList.classList.remove('active');
+        })
+    }
+
+
+}
 
 
 /**
  * инициализация функций и классов
- */
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
     const modal = new Modal('[data-overlay]', '[data-review]');
@@ -217,4 +325,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(window.innerWidth < 501){
         const footerMenu = new FooterMenu('.footer_menu');
     }
+    if(window.innerWidth > 576){
+        const filter = new Filter('data-show');
+    }else{
+        const filter = new MobileFilter('blog_categories_all','blog_categories_mobile','blog_categories_close');
+    }
+
 })

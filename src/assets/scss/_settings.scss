@@ -82,6 +82,13 @@ a {
   line-height: 120%;
   text-align: center;
   color: #4039ff;
+  transition: background 0.3s linear;
+
+  @media (hover:hover) {
+    &:hover {
+      background: #e8eaf4;
+    }
+  }
 
   @include tablet {
     padding-left: 16px;
@@ -96,11 +103,11 @@ a {
 .breadcrumbs {
   margin: 100px 0 25px;
 
-  @include tablet{
+  @include tablet {
     margin-top: 72px;
   }
 
-  @include mobile{
+  @include mobile {
     margin-top: 48px;
     margin-bottom: 16px;
   }
@@ -116,9 +123,79 @@ a {
   text-align: center;
   color: #636884;
 
-  & svg{
+  & svg {
     padding: 4px;
     width: 16px;
     height: 16px;
+  }
+}
+
+.accent_link {
+  box-shadow: 0 6px 40px 0 rgba(78, 117, 255, 0.4);
+  background: #4039ff;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: #fff;
+  transition: background 0.3s linear;
+
+  @include for-desktop {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  @media (hover:hover) {
+    &:hover {
+      background: #2f28db;
+    }
+  }
+}
+
+.white_link {
+  border-radius: 12px;
+  padding: 12px 32px;
+  background: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: #4039ff;
+  transition: background 0.3s linear;
+
+  @include tablet {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+
+  @media (hover:hover) {
+    &:hover {
+      background: rgba(64, 57, 255, 0.08);
+    }
+  }
+}
+
+.grey_link {
+  background: #636884;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: #fff;
+  transition: background 0.3s linear;
+
+  @include for-desktop {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  @media (hover:hover) {
+    &:hover {
+      background: #191c1f;;
+    }
   }
 }

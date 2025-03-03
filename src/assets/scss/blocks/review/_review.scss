@@ -17,7 +17,7 @@
             gap: 16px;
         }
 
-        @include micro-tablet{
+        @include micro-tablet {
             grid-template-columns: 1fr 1fr;
             gap: 8px;
         }
@@ -32,14 +32,14 @@
     flex-direction: column;
     gap: 16px;
 
-    @include mobile{
+    @include mobile {
         padding: 16px;
     }
 
     &.--last {
         gap: 6px;
 
-        @include micro-tablet{
+        @include micro-tablet {
             grid-column: 2 span;
         }
     }
@@ -92,7 +92,7 @@
         font-weight: 600;
     }
 
-    @include mobile{
+    @include mobile {
         font-size: 14px;
     }
 }
@@ -102,7 +102,7 @@
     gap: 16px;
     align-items: center;
 
-    @include micro-mobile{
+    @include micro-mobile {
         gap: 8px;
     }
 }
@@ -117,7 +117,7 @@
         font-size: 32px;
     }
 
-    @include mobile{
+    @include mobile {
         font-size: 20px;
     }
 }
@@ -131,7 +131,7 @@
     line-height: 120%;
     color: #428300;
 
-    @include micro-mobile{
+    @include micro-mobile {
         font-size: 10px;
         padding: 6px;
         white-space: nowrap;
@@ -156,7 +156,7 @@
             height: 18px;
         }
 
-        @include micro-mobile{
+        @include micro-mobile {
             width: 12px;
             height: 11px;
         }
@@ -204,12 +204,12 @@
     gap: 24px;
     margin-top: 24px;
 
-    @include tablet{
+    @include tablet {
         margin-top: 16px;
         gap: 16px;
     }
 
-    @include mobile{
+    @include mobile {
         gap: 8px;
     }
 
@@ -220,17 +220,17 @@
         padding: 24px;
         background: #fff;
 
-        @include tablet{
+        @include tablet {
             gap: calc(36 / 7.68 * 1vw);
-            grid-template-columns: calc(257 / 7.68 * 1vw ) calc(379 / 7.68 * 1vw);
+            grid-template-columns: calc(257 / 7.68 * 1vw) calc(379 / 7.68 * 1vw);
         }
 
-        @include micro-tablet{
+        @include micro-tablet {
             grid-template-columns: 1fr;
             gap: 24px;
         }
 
-        @include mobile{
+        @include mobile {
             padding: 16px;
         }
     }
@@ -239,13 +239,13 @@
         width: 100px;
         height: 100px;
 
-        @include tablet{
+        @include tablet {
             width: calc(60 / 7.68 * 1vw);
             height: auto;
             max-height: calc(60 / 7.68 * 1vw);
         }
 
-        @include micro-tablet{
+        @include micro-tablet {
             width: 60px;
             height: 60px;
             max-height: none;
@@ -260,12 +260,12 @@
         grid-template-columns: 100px 1fr;
         gap: 24px;
 
-        @include tablet{
+        @include tablet {
             gap: 16px;
             grid-template-columns: calc(60 / 7.68 * 1vw) 1fr;
         }
 
-        @include micro-tablet{
+        @include micro-tablet {
             grid-template-columns: 60px 1fr;
         }
     }
@@ -273,14 +273,14 @@
     &:last-child {
         transition: all 0.2s linear;
 
-        @include small-tablet{
+        @include small-tablet {
             position: relative;
         }
 
         & .review_info_star {
             margin-bottom: 24px;
 
-            @include tablet{
+            @include tablet {
                 margin-bottom: 16px;
             }
         }
@@ -295,7 +295,7 @@
             overflow: hidden;
             transition: max-height 0.2s linear;
 
-            @include tablet{
+            @include tablet {
                 font-size: 16px;
             }
         }
@@ -305,7 +305,7 @@
         width: 25px;
         height: 23px;
 
-        @include tablet{
+        @include tablet {
             width: 19px;
             height: 18px;
         }
@@ -319,19 +319,19 @@
         display: block;
         margin-top: 20px;
 
-        @include tablet{
+        @include tablet {
             margin-top: 16px;
             font-size: 14px;
         }
 
-        @include micro-tablet{
+        @include micro-tablet {
             display: none;
         }
 
-        &.--mobile{
+        &.--mobile {
             display: none;
 
-            @include micro-tablet{
+            @include micro-tablet {
                 display: block;
                 position: absolute;
                 top: 0;
@@ -352,7 +352,7 @@
     color: #191c1f;
     margin-bottom: 6px;
 
-    @include tablet{
+    @include tablet {
         font-size: 20px;
     }
 }
@@ -368,7 +368,7 @@
     line-height: 125%;
     color: #636884;
 
-    @include tablet{
+    @include tablet {
         font-size: 14px;
     }
 }
@@ -381,7 +381,7 @@
     color: rgba(99, 104, 132, 0.6);
     margin-top: 8px;
 
-    @include tablet{
+    @include tablet {
         font-size: 16px;
         margin-top: 4px;
     }
@@ -391,6 +391,20 @@
     display: flex;
     justify-content: center;
     margin-top: 16px;
+
+    & .prev path,
+    & .next path {
+        transition: all 0.3s linear;
+    }
+
+    & .prev:hover,
+    & .next:hover {
+        & path {
+            @media (hover:hover) {
+                stroke: #4039FF;
+            }
+        }
+    }
 
     & ul {
         list-style: none;
@@ -423,6 +437,14 @@
         line-height: 120%;
         text-align: center;
         color: var(--text-color);
+        transition: all 0.3s linear;
+    }
+
+    @media (hover:hover) {
+        & li a:hover {
+            background: #4039ff;
+            color: #fff;
+        }
     }
 
     & li:first-child a,

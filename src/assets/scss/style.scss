@@ -8,8 +8,10 @@
 @use 'blocks/header'as *;
 @use 'blocks/review/review'as *;
 @use 'blocks/author/author'as *;
+@use 'blocks/blog/blog'as *;
 @use 'blocks/footer'as *;
 @use 'blocks/modal'as *;
+@use 'blocks/old'as *;
 
 
 html,
