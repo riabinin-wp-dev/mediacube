@@ -32,10 +32,13 @@
                             <ul class="sub-menu">
                                 <li><a href=""><img src="./assets/images/header/menu_icon_1.svg" alt="">Withdrawal of
                                         income <span>Dozens of ways to withdraw income from YouTube</span> </a></li>
-                                <li><a href=""><img src="./assets/images/header/menu_icon_2.svg" alt="">Team finance <span>Distribute income between authors in few clicks</span></a></li>
-                                <li><a href=""><img src="./assets/images/header/menu_icon_3.svg" alt="">Digital currencies <span>Withdraw money to e-wallets</span></a>
+                                <li><a href=""><img src="./assets/images/header/menu_icon_2.svg" alt="">Team finance
+                                        <span>Distribute income between authors in few clicks</span></a></li>
+                                <li><a href=""><img src="./assets/images/header/menu_icon_3.svg" alt="">Digital currencies
+                                        <span>Withdraw money to e-wallets</span></a>
                                 </li>
-                                <li><a href=""><img src="./assets/images/header/menu_icon_4.svg" alt="">Advance payments <span>Get money in advance for any purpose</span></a>
+                                <li><a href=""><img src="./assets/images/header/menu_icon_4.svg" alt="">Advance payments
+                                        <span>Get money in advance for any purpose</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -47,11 +50,42 @@
                     <a href="#!" class="header_auth white_link">Войти</a>
                     <a href="#!" class="header_reg accent_link">Зарегистрироваться</a>
                 </div>
-                <button type="button" class="btn-reset header_burger" aria-label="Open the menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button type="button" class="btn-reset header_burger burger" onclick="toggleButton(event, '.header__wrapper')"
+                    aria-label="Open the menu">
+                    <div class="burger__content">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </button>
+            </div>
+        </div>
+        <div class="header__wrapper">
+            <div class="header__navigation">
+                <ul class="header_nav header_mobile list-reset">
+                    <li class="current-menu-item menu-item-has-children">
+                        <a href="">Креаторам</a>
+                        <ul class="sub-menu">
+                            <li><a href=""><img src="./assets/images/header/menu_icon_1.svg" alt="">Withdrawal of
+                                    income <span>Dozens of ways to withdraw income from YouTube</span> </a></li>
+                            <li><a href=""><img src="./assets/images/header/menu_icon_2.svg" alt="">Team finance
+                                    <span>Distribute income between authors in few clicks</span></a></li>
+                            <li><a href=""><img src="./assets/images/header/menu_icon_3.svg" alt="">Digital currencies
+                                    <span>Withdraw money to e-wallets</span></a>
+                            </li>
+                            <li><a href=""><img src="./assets/images/header/menu_icon_4.svg" alt="">Advance payments <span>Get
+                                        money in advance for any purpose</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="">Бизнесу</a></li>
+                    <li><a href="">Компания</a></li>
+                </ul>
+            </div>
+            <div class="header__buttons">
+                <a class="btn-white white_link" href="https://mcpay.io/auth/sign-in">Log in</a>
+                <a class="btn accent_link" href="https://mcpay.io/auth/sign-up">Registration</a>
             </div>
         </div>
         <main class="main">
@@ -457,6 +491,24 @@
         </section>
     </div>
     <script src="assets/js/app.js"></script>
+    <script>
+        function toggleButton(e , className) {
+            const modalOverlay = document.querySelector(className);
+            if(modalOverlay.classList.contains('active')){
+                e.target.classList.remove('active');
+                modalOverlay.classList.remove('animation');
+                // setTimeout(() => {
+                    modalOverlay.classList.remove('active');
+                // }, 300);
+            }else{
+                e.target.classList.add('active');
+                modalOverlay.classList.add('active');
+                setTimeout(() => {
+                    modalOverlay.classList.add('animation');
+                }, 100);
+            }
+        }
+        </script>
 </body>
 </html>
 

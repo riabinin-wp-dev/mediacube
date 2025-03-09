@@ -313,6 +313,24 @@ class MobileFilter{
 
 }
 
+/**
+ * раскрытие мобильного меню
+ */
+function openMenu(itemClass){
+    if(window.innerWidth > 1020){
+        return;
+    }
+    const itemclasses = document.querySelectorAll(itemClass);
+    if(itemclasses.length == 0){
+        return;
+    }
+    itemclasses.forEach(element => {
+        element.addEventListener('click',(e)=>{
+            e.preventDefault();
+            element.classList.toggle('active');
+        })
+    });
+}
 
 /**
  * инициализация функций и классов
@@ -330,5 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }else{
         const filter = new MobileFilter('blog_categories_all','blog_categories_mobile','blog_categories_close');
     }
+    openMenu('.header_mobile .menu-item-has-children');
 
 })

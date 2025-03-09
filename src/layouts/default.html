@@ -16,6 +16,24 @@
 
     </div>
     <script src="assets/js/app.js"></script>
+    <script>
+        function toggleButton(e , className) {
+            const modalOverlay = document.querySelector(className);
+            if(modalOverlay.classList.contains('active')){
+                e.target.classList.remove('active');
+                modalOverlay.classList.remove('animation');
+                // setTimeout(() => {
+                    modalOverlay.classList.remove('active');
+                // }, 300);
+            }else{
+                e.target.classList.add('active');
+                modalOverlay.classList.add('active');
+                setTimeout(() => {
+                    modalOverlay.classList.add('animation');
+                }, 100);
+            }
+        }
+        </script>
 </body>
 </html>
 

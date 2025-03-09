@@ -145,6 +145,7 @@ a {
   @include for-desktop {
     font-size: 14px;
     padding: 10px 16px;
+    line-height: 1.6;
   }
 
   @media (hover:hover) {

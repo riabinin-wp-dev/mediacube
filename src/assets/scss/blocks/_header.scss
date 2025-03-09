@@ -194,11 +194,197 @@
         }
     }
 }
+@media(min-width:1021px){
+    @media(hover:hover) {
+        .menu-item-has-children:hover .sub-menu {
+            visibility: visible;
+            opacity: 1;
+            transform: rotateX(0);
+        }
+    }
+}
 
-@media(hover:hover) {
-    .menu-item-has-children:hover .sub-menu {
+.burger {
+    background-color: #fff;
+    border-radius: 8px;
+    height: 36px;
+    padding: 10px;
+    position: relative;
+    transition: all 0.2s ease;
+    display: none;
+    width: 36px;
+  }
+  .burger__content {
+    display: block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    pointer-events: none;
+  }
+  .burger span {
+    background-color: #191c1f;
+    border-radius: 8px;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.2s ease;
+    width: 100%;
+    pointer-events: none;
+  }
+  .burger span:first-child {
+    top: 0;
+  }
+  .burger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .burger span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .burger span:nth-child(4) {
+    bottom: 0;
+  }
+  .header__wrapper{
+    display: none;
+  }
+  @media screen and (max-width: 1020px) {
+    .header__wrapper{
+        display: block;
+    }
+    .header_mobile.header_nav{
+        display: flex;
+    }
+    .burger {
+      display: block;
+    }
+    .header_nav{
+        display: none;
+    }
+    .header_wrapper{
+        display: none;
+    }
+    .header__wrapper {
+      position: fixed;
+      left: 0;
+      top: -40px;
+      z-index: 9;
+      visibility: hidden;
+      width: 100%;
+      opacity: 0;
+      height: calc(100% - 67px);
+      background: #f5f5f5;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: all 0.2s linear;
+    }
+    .header__wrapper.active {
+      opacity: 1;
+      top: 67px;
+      visibility: visible;
+    }
+    
+    .burger.active span:first-child {
+      left: 50%;
+      top: 50%;
+      width: 0;
+    }
+    .burger.active span:nth-child(2) {
+      transform: rotate(45deg) translateY(-50%);
+    }
+    .burger.active span:nth-child(3) {
+      left: 5%;
+      transform: rotate(-45deg) translateY(-50%);
+    }
+    .burger.active span:nth-child(4) {
+      left: 50%;
+      top: 50%;
+      width: 0;
+    }
+    .header__buttons {
+        position: sticky;
+        top: 100%;
+      }
+      .header__navigation {
+        width: 100%;
+      }
+      .header__mobile-wrapper {
+        width: 100%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      .sub-menu__wrapper {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      .header__mobile-wrapper {
+        display: none;
+      }
+      .header__mobile-wrapper.opened {
+        display: block;
+      }
+      .sub-menu {
+        display: none;
+      }
+      .menu-item-has-children > a.opened {
+        background: #fff;
+      }
+      .menu-item-has-children > a.opened:after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      .header__navigation .menu-item-has-children > a:before {
+        display: none;
+      }
+      .no-scroll {
+        overflow: hidden;
+      }
+}
+.header_mobile.header_nav{
+    flex-wrap: wrap;
+
+    @include mobile{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        position: relative;
+
+        & li{
+            position: static;
+        }
+    }
+
+    & .menu-item-has-children.active .sub-menu {
         visibility: visible;
         opacity: 1;
         transform: rotateX(0);
     }
 }
+// body:has(.burger.active){
+//     overflow: hidden;
+//     margin-right: var(--scrollbar-width);
+
+//     & .header__wrapper{
+//         width: calc(100% - var(--scrollbar-width));
+//     }  
+// }
+.header__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__wrapper .btn {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 6px 21px;
+    margin-left: 16px;
+    border-radius: 8px;
+  }
+  .header__wrapper .btn-white {
+    padding: 6px 21px;
+    border-radius: 8px;
+    color: var(--main-black-color);
+  }
